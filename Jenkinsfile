@@ -14,7 +14,6 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo 5 > /app/Score.txt'
                 sh 'python3 /app/MainScores.py &'
                 sh 'sleep 5'
                 sh 'python3 e2e.py'
