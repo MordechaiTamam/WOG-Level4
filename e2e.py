@@ -10,7 +10,7 @@ def test_scores_service():
     chrome_options.add_argument(r"user-data-dir=.\cookies\\test")
     chrome_options.headless = True
     chrome_driver = webdriver.Chrome(chrome_options=chrome_options)
-    chrome_driver.get('http://localhost:5001')
+    chrome_driver.get('http://localhost:5001/score')
     score = int(chrome_driver.find_element(by=By.ID, value='score').text)
     return 1 < score < 1000
 
