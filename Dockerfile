@@ -9,4 +9,4 @@ COPY Score.txt /app/
 EXPOSE 5001
 
 # Run app.py when the container launches
-CMD python MainScores.py
+CMD python3 MainScores.py

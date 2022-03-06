@@ -14,7 +14,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'sleep 10'
+                sh 'python3 /app/MainScores.py'
+                sh 'sleep 5'
                 sh 'python3 e2e.py'
             }
         }
