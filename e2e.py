@@ -4,11 +4,13 @@ from selenium.webdriver.common.by import By
 def test_scores_service():
     from selenium import webdriver
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("no-sandbox")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-using")
     chrome_options.add_argument("--disable-extensions")
-
-    chrome_driver = webdriver.Chrome(chrome_options=chrome_options,executable_path="/home/modi/dev/web-and-automation/selenium/chromedriver")
-    chrome_driver.get('http://localhost:5001/score')
+    chrome_options.add_argument(r"user-data-dir=.\cookies\\test")
+    chrome_options.headless = True
+    chrome_driver = webdriver.Chrome(chrome_options=chrome_options)
+    chrome_driver.get('http://localhost:5001')
     score = int(chrome_driver.find_element(by=By.ID, value='score').text)
     return 1 < score < 1000
 
