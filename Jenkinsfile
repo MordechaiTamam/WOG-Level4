@@ -4,9 +4,6 @@ pipeline {
         stage('Build docker image'){
             steps{
                 sh 'docker build -t moditamam/selenium:from-jenkins-pipeline .'
-                sh 'docker login -u moditamam -p @Mbmt123456'
-                sh 'docker push moditamam/selenium:from-jenkins-pipeline'
-                sh 'docker rmi moditamam/selenium:from-jenkins-pipeline'
             }
         }
         stage('list files') {
@@ -17,6 +14,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'sleep 10'
                 sh 'python3 e2e.py'
             }
         }
