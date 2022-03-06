@@ -17,7 +17,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python3.9 e2e.py'
+                sh 'python3 e2e.py'
             }
         }
     }
