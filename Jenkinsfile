@@ -6,7 +6,7 @@ pipeline {
                 sh 'docker build -t moditamam/selenium:from-jenkins-pipeline .'
             }
         }
-        stage('list files') {
+        stage('Run & Test') {
             agent {
                 docker {
                     image "moditamam/selenium:from-jenkins-pipeline"
@@ -14,6 +14,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'echo 5 > /app/Score.txt'
                 sh 'python3 /app/MainScores.py &'
                 sh 'sleep 5'
                 sh 'python3 e2e.py'

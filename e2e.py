@@ -16,4 +16,7 @@ def test_scores_service():
 
 
 if __name__ == "__main__":
-    print(test_scores_service())
+    if test_scores_service():
+        exit(0)
+    else:
+        exit(1)
